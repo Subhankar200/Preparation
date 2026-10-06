@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SSC AI Prep</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="spark">✦</span><b>SSC AI Prep</b><span class="pill">Study Workspace</span></div>
+  <div class="topright"><span id="loaded">No material</span><button id="theme">☾</button><button id="new">New Session</button></div>
+</header>
+<div class="shell">
+<aside>
+  <button id="upload" class="upload">＋ Upload Material</button>
+  <input id="file" type="file" hidden accept=".pdf,.docx,.html,.htm,.txt,.md,.png,.jpg,.jpeg,.webp,.gif,.bmp">
+  <button id="paste" class="sidebtn">Paste Text</button>
+  <div class="filecard"><small>YOUR MATERIAL</small><strong id="fname">Nothing loaded</strong><span id="fmeta">PDF, Word, HTML, image or text</span></div>
+  <div class="side-title">STUDY TOOLS</div>
+  <nav>
+   <button data-s="reader" class="active">📖 Reader</button>
+   <button data-s="summary">📝 Summary</button>
+   <button data-s="keys">🔑 Key Points</button>
+   <button data-s="practice">❓ Practice</button>
+   <button data-s="mock">🎯 Mock Test</button>
+   <button data-s="analysis">📊 Analysis</button>
+   <button data-s="preview">📄 Preview</button>
+  </nav>
+  <div class="side-bottom">Read your material first, then use the Chat box at the bottom to ask questions.</div>
+</aside>
+
+<main>
+  <div id="reader" class="reader">
+    <div id="empty" class="empty">
+      <div class="heroicon">✦</div>
+      <h1>Upload your study material</h1>
+      <p>Read the complete extracted text in this page. Then use the Chat Assistant at the bottom for questions.</p>
+      <div class="formats"><span>PDF</span><span>DOCX</span><span>HTML</span><span>Images</span><span>TXT</span></div>
+    </div>
+    <article id="document" class="document hidden"></article>
+  </div>
+
+  <div id="toolArea" class="toolArea hidden"></div>
+
+  <section class="chatDock hidden" id="chatDock">
+    <div class="chatHead"><div><b>✦ Chat Assistant</b><small>Ask about the material above</small></div><button id="clearChat">Clear</button></div>
+    <div id="chat" class="chat"></div>
+    <div class="composer"><textarea id="input" rows="1" placeholder="Ask a question about your study material..."></textarea><button id="send">➤</button></div>
+  </section>
+</main>
+</div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body></html>
